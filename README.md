@@ -1,4 +1,4 @@
-![Screenshot_2026-02-26_004836](https://github.com/user-attachments/assets/b3094966-e8cf-4e02-b593-ae41137ac833)# Legal Graph RAG
+# Legal Graph RAG
 
 A Graph-Augmented Retrieval system for legal contract intelligence. Upload contracts, extract a knowledge graph of parties, clauses, obligations, and risk flags, then ask complex questions that require traversing relationships across documents.
 
