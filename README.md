@@ -72,7 +72,7 @@ Graph RAG correctly identifies TCL as the owner. Baseline returns an unrelated t
 ---
 
 Query: "In the Content License Agreement, who are the parties?"
-Graph RAG correctly returns TCL and Angel via graph-linked party nodes. Baseline returns parties from a different contract entirely.
+Graph RAG correctly returns TCL and Angel, scoped to the right contract via graph-linked party nodes. Baseline returns parties from a different contract (Zenith, Meridian, CloudBase from the IP License Agreement), failing to scope the answer to the queried contract.
 
 ![Factual query — party identification](results/Screenshot_2026-02-26_003559.png)
 
