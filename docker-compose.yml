@@ -1,0 +1,113 @@
+version: "3.8"
+
+services:
+
+  neo4j:
+    image: neo4j:5.13.0
+    container_name: legal-neo4j
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      - NEO4J_AUTH=neo4j/${NEO4J_PASSWORD:-legalrag}
+      - NEO4J_dbms_memory_heap_max__size=1G
+    volumes:
+      - neo4j_data:/data
+    healthcheck:
+      test: ["CMD", "cypher-shell", "-u", "neo4j", "-p", "${NEO4J_PASSWORD:-legalrag}", "RETURN 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: legal-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=legalrag
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-legalrag}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backend/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d legalrag"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: legal-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: legal-backend
+    ports:
+      - "8000:8000"
+    env_file: .env
+    environment:
+      - NEO4J_URI=bolt://neo4j:7687
+      - POSTGRES_URL=postgresql://admin:${POSTGRES_PASSWORD:-legalrag}@postgres:5432/legalrag
+      - REDIS_URL=redis://redis:6379/0
+      - OLLAMA_BASE_URL=http://172.17.0.1:11434
+    depends_on:
+      neo4j:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+      - ./data:/app/data
+      - uploads_data:/tmp/legal_rag_uploads
+
+  celery_worker:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: legal-celery
+    command: celery -A celery_app worker --loglevel=info --concurrency=2
+    env_file: .env
+    environment:
+      - NEO4J_URI=bolt://neo4j:7687
+      - POSTGRES_URL=postgresql://admin:${POSTGRES_PASSWORD:-legalrag}@postgres:5432/legalrag
+      - REDIS_URL=redis://redis:6379/0
+      - OLLAMA_BASE_URL=http://172.17.0.1:11434
+      - PYTHONPATH=/app
+    depends_on:
+      - redis
+      - neo4j
+      - postgres
+    volumes:
+      - ./backend:/app
+      - ./data:/app/data
+      - uploads_data:/tmp/legal_rag_uploads
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: legal-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+volumes:
+  neo4j_data:
+  postgres_data:
+  redis_data:
+  uploads_data:

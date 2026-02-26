@@ -1,0 +1,122 @@
+INTELLECTUAL PROPERTY LICENSE AND PARTNERSHIP AGREEMENT
+
+This Intellectual Property License and Partnership Agreement ("Agreement") is entered into as of June 1, 2023 by and among:
+
+Zenith Software Solutions, Inc., a New York corporation ("Licensor"),
+Meridian Analytics Group LLC, a California limited liability company ("Licensee"), and
+CloudBase Infrastructure Ltd., a United Kingdom company ("Sub-Licensee").
+
+RECITALS
+
+WHEREAS, Licensor owns certain proprietary software technology and intellectual property relating to machine learning-based data analytics platforms;
+WHEREAS, Licensee desires to obtain a license to such technology for commercial deployment;
+WHEREAS, Sub-Licensee desires to host and distribute the licensed technology;
+
+ARTICLE 1 – DEFINITIONS
+
+"Licensed Technology" means Licensor's proprietary AnalyticsCore platform (version 3.x), including all source code, object code, documentation, algorithms, and associated intellectual property.
+
+"Territory" means the United States, Canada, Mexico, and the European Union.
+
+"Derivative Works" means any software, product, or creation that incorporates, is based upon, or derived from the Licensed Technology.
+
+"Net Revenue" means gross revenue less refunds, chargebacks, and applicable taxes.
+
+ARTICLE 2 – LICENSE GRANT
+
+2.1 License to Licensee. Subject to the terms hereof, Licensor grants Licensee a non-exclusive, non-transferable license to:
+   (a) Use, reproduce, and deploy the Licensed Technology within the Territory;
+   (b) Create Derivative Works of the Licensed Technology for internal use and commercial distribution;
+   (c) Sublicense the Licensed Technology to Sub-Licensee solely for hosting and distribution purposes.
+
+2.2 License to Sub-Licensee. Licensee may sublicense the rights granted in Section 2.1(c) to Sub-Licensee solely to host, distribute, and maintain the Licensed Technology on behalf of Licensee.
+
+2.3 Restrictions. Licensee and Sub-Licensee shall not:
+   (a) Transfer, assign, or sublicense the Licensed Technology except as expressly permitted;
+   (b) Reverse engineer, decompile, or disassemble the Licensed Technology;
+   (c) Remove or alter any proprietary notices or labels;
+   (d) Use the Licensed Technology to compete directly with Licensor's core analytics platform.
+
+ARTICLE 3 – INTELLECTUAL PROPERTY OWNERSHIP
+
+3.1 Retained Rights. Licensor retains all right, title, and interest in and to the Licensed Technology, including all intellectual property rights therein. Nothing in this Agreement shall be construed as transferring ownership of the Licensed Technology.
+
+3.2 Derivative Works Ownership. NOTWITHSTANDING ANY OTHER PROVISION OF THIS AGREEMENT, ALL DERIVATIVE WORKS CREATED BY LICENSEE OR SUB-LICENSEE THAT INCORPORATE MORE THAN TWENTY PERCENT (20%) OF THE LICENSED TECHNOLOGY'S SOURCE CODE SHALL BE AUTOMATICALLY ASSIGNED TO AND OWNED BY LICENSOR UPON CREATION, WITHOUT FURTHER ACTION OR COMPENSATION.
+
+3.3 Improvements. Any improvements, modifications, or enhancements made to the Licensed Technology by any Party shall automatically become part of the Licensed Technology and the exclusive property of Licensor.
+
+3.4 Attribution. Licensee shall display Licensor's trademark and copyright notices in all products incorporating the Licensed Technology.
+
+ARTICLE 4 – ROYALTIES AND PAYMENTS
+
+4.1 License Fee. Licensee shall pay Licensor a one-time license fee of USD $2,000,000 (Two Million Dollars) within thirty (30) days of the Effective Date.
+
+4.2 Ongoing Royalties. Licensee shall pay Licensor ongoing royalties equal to:
+   (a) 15% of Net Revenue from products incorporating the Licensed Technology; plus
+   (b) 5% of Net Revenue from Derivative Works.
+
+4.3 Minimum Annual Guarantee. Licensee guarantees minimum annual royalty payments of USD $500,000 regardless of actual Net Revenue.
+
+4.4 Sub-Licensee Revenue Share. Sub-Licensee shall remit to Licensor 8% of any revenue Sub-Licensee derives from hosting or distributing the Licensed Technology.
+
+4.5 Audit Rights. Licensor may audit Licensee's and Sub-Licensee's books and records upon thirty (30) days' written notice, no more than once per calendar year.
+
+ARTICLE 5 – INDEMNIFICATION (UNLIMITED)
+
+5.1 Licensee and Sub-Licensee, jointly and severally, agree to fully indemnify, defend, and hold harmless Licensor and its affiliates, officers, directors, employees, and agents from any and all claims, damages, losses, costs, and expenses of any kind (INCLUDING CONSEQUENTIAL, INDIRECT, AND PUNITIVE DAMAGES) arising from or relating to:
+   (a) Any use or deployment of the Licensed Technology;
+   (b) Any Derivative Works;
+   (c) Any breach of this Agreement;
+   (d) Any third-party claims related to Licensee's or Sub-Licensee's business operations.
+
+5.2 This indemnification obligation shall be unlimited in amount and shall survive termination of this Agreement indefinitely.
+
+ARTICLE 6 – LIMITATION OF LIABILITY
+
+6.1 LICENSOR'S LIABILITY CAP. Notwithstanding anything to the contrary, Licensor's total liability to Licensee or Sub-Licensee under this Agreement shall not exceed USD $100,000 (One Hundred Thousand Dollars).
+
+6.2 EXCLUSION. Licensor shall not be liable for any indirect, consequential, or punitive damages.
+
+[NOTE: Section 5 imposes unlimited indemnification from Licensee to Licensor while Section 6 caps Licensor's own liability at $100,000 — creating a significant imbalance]
+
+ARTICLE 7 – NON-COMPETE
+
+7.1 During the term of this Agreement and for three (3) years after termination, Licensee and Sub-Licensee shall not, directly or indirectly:
+   (a) Develop, market, or distribute any product that competes with the Licensed Technology;
+   (b) Solicit or hire any employees of Licensor involved in the development of the Licensed Technology;
+   (c) Engage in any business that derives more than 20% of its revenue from analytics products similar to the Licensed Technology.
+
+7.2 The geographic scope of the non-compete obligation covers the United States, Canada, European Union, United Kingdom, and Australia.
+
+ARTICLE 8 – TERM AND TERMINATION
+
+8.1 Initial Term. This Agreement shall have an initial term of five (5) years from the Effective Date.
+
+8.2 Renewal. This Agreement shall automatically renew for successive two-year terms unless either Party provides notice of non-renewal at least one hundred and twenty (120) days prior to expiration.
+
+8.3 Termination for Breach. Licensor may terminate this Agreement immediately upon written notice if Licensee or Sub-Licensee: (a) fails to pay any amounts due within fifteen (15) days of the due date; (b) materially breaches any provision; or (c) challenges the validity of Licensor's intellectual property.
+
+8.4 Effect of Termination. Upon termination: (a) all licenses granted herein immediately terminate; (b) Licensee and Sub-Licensee shall immediately cease all use of the Licensed Technology; (c) all Derivative Works and improvements revert to Licensor; (d) all unpaid royalties and minimum guarantees become immediately due.
+
+ARTICLE 9 – GOVERNING LAW
+
+9.1 This Agreement shall be governed by the laws of New York, without regard to conflict of laws principles.
+
+9.2 Disputes shall be resolved by binding arbitration in New York City under JAMS rules.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement.
+
+ZENITH SOFTWARE SOLUTIONS, INC.
+By: David Park
+Title: President
+Date: June 1, 2023
+
+MERIDIAN ANALYTICS GROUP LLC
+By: Jennifer Wu
+Title: CEO
+Date: June 1, 2023
+
+CLOUDBASE INFRASTRUCTURE LTD.
+By: James Harrison
+Title: Managing Director
+Date: June 1, 2023

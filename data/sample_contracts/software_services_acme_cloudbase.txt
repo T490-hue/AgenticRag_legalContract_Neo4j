@@ -1,0 +1,106 @@
+SOFTWARE SERVICES AGREEMENT
+
+This Software Services Agreement ("Agreement") is made and entered into as of March 1, 2023 ("Effective Date") between:
+
+Acme Technologies Corporation, a Delaware corporation ("Client"), and
+CloudBase Infrastructure Ltd., a United Kingdom company registered in England and Wales (Company No. 08432156), with its registered office at 45 King William Street, London EC4R 9AN ("Service Provider").
+
+BACKGROUND
+
+Client desires to obtain certain cloud infrastructure and software development services, and Service Provider desires to provide such services, on the terms and conditions set forth herein.
+
+ARTICLE 1 – SERVICES
+
+1.1 Description of Services. Service Provider shall provide Client with the following services (collectively, the "Services"):
+   (a) Cloud infrastructure management and monitoring;
+   (b) Custom software development and integration services;
+   (c) 24/7 technical support and incident response;
+   (d) Security auditing and vulnerability assessments;
+   (e) Monthly performance reporting and analytics.
+
+1.2 Statement of Work. The specific deliverables, timelines, and technical specifications for the Services shall be set forth in one or more Statements of Work ("SOW") to be mutually agreed upon by the Parties and incorporated herein by reference.
+
+1.3 Service Levels. Service Provider shall maintain a minimum uptime of 99.9% for all production systems, measured monthly. In the event Service Provider fails to meet this SLA, Client shall receive service credits as set forth in Schedule A.
+
+ARTICLE 2 – TERM
+
+2.1 Initial Term. This Agreement shall commence on the Effective Date and continue for an initial term of two (2) years ("Initial Term").
+
+2.2 Renewal. Upon expiration of the Initial Term, this Agreement shall automatically renew for successive one-year periods (each a "Renewal Term") unless either Party provides written notice of non-renewal at least ninety (90) days prior to the end of the then-current term.
+
+2.3 Termination for Convenience. Either Party may terminate this Agreement for any reason upon one hundred and eighty (180) days prior written notice to the other Party.
+
+2.4 Termination for Cause. Either Party may terminate this Agreement immediately upon written notice if the other Party: (a) materially breaches this Agreement and fails to cure such breach within thirty (30) days after receiving written notice; (b) becomes insolvent or files for bankruptcy protection; or (c) ceases to conduct business in the ordinary course.
+
+ARTICLE 3 – FEES AND PAYMENT
+
+3.1 Service Fees. Client shall pay Service Provider the fees set forth in Schedule B ("Fees"), which consist of:
+   (a) Monthly Retainer: USD $45,000 per month for baseline infrastructure management;
+   (b) Development Fees: USD $250 per hour for custom development work;
+   (c) Emergency Support: USD $500 per hour for out-of-scope emergency support.
+
+3.2 Invoicing. Service Provider shall invoice Client monthly in arrears. Client shall pay all undisputed amounts within thirty (30) days of receipt of invoice.
+
+3.3 Late Payment. Any amounts not paid when due shall accrue interest at the rate of one and one-half percent (1.5%) per month or the maximum rate permitted by applicable law, whichever is less.
+
+3.4 Taxes. Client shall be responsible for all applicable taxes, levies, or duties associated with this Agreement, excluding taxes based on Service Provider's income.
+
+ARTICLE 4 – INTELLECTUAL PROPERTY
+
+4.1 Client Materials. All data, content, and materials provided by Client ("Client Materials") shall remain the sole and exclusive property of Client. Service Provider is granted a limited license to use Client Materials solely to provide the Services.
+
+4.2 Service Provider Tools. Service Provider shall retain all rights, title, and interest in and to its pre-existing technology, tools, frameworks, and methodologies ("Service Provider Tools"), including any improvements or derivatives thereof made in connection with this Agreement.
+
+4.3 Work Product. All custom software, code, documentation, and other deliverables created specifically for Client pursuant to a SOW ("Work Product") shall be considered works made for hire and shall be owned by Client upon full payment of applicable fees. To the extent any Work Product does not qualify as a work made for hire, Service Provider hereby assigns all rights therein to Client.
+
+4.4 License Back. Client hereby grants Service Provider a non-exclusive, royalty-free license to use any general methodologies or technical approaches developed in connection with Work Product in future engagements with other clients, provided such use does not disclose Client's Confidential Information.
+
+ARTICLE 5 – CONFIDENTIALITY
+
+5.1 Each Party acknowledges that it may receive Confidential Information of the other Party. "Confidential Information" means all non-public information disclosed by one Party to the other, including but not limited to business plans, technical specifications, financial data, customer information, and pricing.
+
+5.2 Each Party agrees to: (a) maintain strict confidentiality; (b) use Confidential Information only for purposes of this Agreement; (c) disclose only to employees with a need to know; and (d) protect using at least the same care as its own confidential information.
+
+5.3 The confidentiality obligations shall survive termination for a period of five (5) years.
+
+ARTICLE 6 – INDEMNIFICATION
+
+6.1 Client Indemnification. Client shall indemnify, defend, and hold harmless Service Provider from any third-party claims arising from: (a) Client's breach of this Agreement; (b) Client's negligence or willful misconduct; or (c) infringement of third-party rights by Client Materials.
+
+6.2 Service Provider Indemnification. Service Provider shall indemnify, defend, and hold harmless Client from any third-party claims arising from: (a) Service Provider's breach of this Agreement; (b) Service Provider's negligence or willful misconduct; (c) infringement of third-party intellectual property rights by Service Provider Tools or Work Product (excluding infringement caused by Client's direction).
+
+6.3 Indemnification Procedure. The indemnified Party shall: (a) promptly notify the indemnifying Party; (b) grant the indemnifying Party control of the defense; and (c) provide reasonable cooperation.
+
+ARTICLE 7 – LIMITATION OF LIABILITY
+
+7.1 EXCLUSION OF CONSEQUENTIAL DAMAGES. IN NO EVENT SHALL EITHER PARTY BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, INCLUDING WITHOUT LIMITATION LOST REVENUE, LOST PROFITS, OR LOSS OF DATA, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+7.2 CAP ON LIABILITY. EACH PARTY'S TOTAL CUMULATIVE LIABILITY ARISING OUT OF OR RELATED TO THIS AGREEMENT SHALL NOT EXCEED THE TOTAL FEES PAID OR PAYABLE BY CLIENT DURING THE TWELVE (12) MONTH PERIOD IMMEDIATELY PRECEDING THE EVENT GIVING RISE TO LIABILITY.
+
+7.3 EXCEPTIONS. The limitations in Sections 7.1 and 7.2 shall not apply to: (a) breach of confidentiality obligations; (b) indemnification obligations; or (c) fraud or willful misconduct.
+
+ARTICLE 8 – DATA PROTECTION
+
+8.1 Service Provider shall process Client's personal data only in accordance with Client's documented instructions and applicable data protection laws including the UK GDPR and, where applicable, the EU GDPR.
+
+8.2 Service Provider shall implement and maintain appropriate technical and organizational measures to protect personal data against unauthorized access, loss, or destruction.
+
+8.3 Service Provider shall not transfer personal data outside the United Kingdom or European Economic Area without Client's prior written consent and appropriate safeguards.
+
+ARTICLE 9 – GOVERNING LAW
+
+9.1 This Agreement shall be governed by and construed in accordance with the laws of England and Wales.
+
+9.2 Any disputes shall be subject to the exclusive jurisdiction of the courts of England and Wales, provided that either Party may seek urgent injunctive relief in any jurisdiction.
+
+IN WITNESS WHEREOF, the Parties have executed this Agreement as of the Effective Date.
+
+ACME TECHNOLOGIES CORPORATION
+By: Sarah Mitchell
+Title: Chief Executive Officer
+Date: March 1, 2023
+
+CLOUDBASE INFRASTRUCTURE LTD.
+By: James Harrison
+Title: Managing Director
+Date: March 1, 2023

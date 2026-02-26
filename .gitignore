@@ -1,0 +1,11 @@
+.env
+__pycache__/
+*.pyc
+node_modules/
+build/
+.DS_Store
+neo4j_data/
+postgres_data/
+redis_data/
+/tmp/
+uploads/
