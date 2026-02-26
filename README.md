@@ -1,4 +1,4 @@
-# Legal Graph RAG
+![Screenshot_2026-02-26_004836](https://github.com/user-attachments/assets/b3094966-e8cf-4e02-b593-ae41137ac833)# Legal Graph RAG
 
 A Graph-Augmented Retrieval system for legal contract intelligence. Upload contracts, extract a knowledge graph of parties, clauses, obligations, and risk flags, then ask complex questions that require traversing relationships across documents.
 
@@ -99,7 +99,7 @@ Graph RAG traverses RELATED_TO edges to identify that ACME TECHNOLOGIES CORPORAT
 Query: "Which contracts have conflicting indemnification and liability clauses?"
 Graph RAG uses CONFLICTS_WITH edges to provide a detailed breakdown of specific conflicts across multiple passages. Baseline produces a partial answer from cosine similarity alone, missing the structural conflict relationships.
 
-![Multi-hop query — clause conflict detection](results/Screenshot_2026-02-26_004836.png)
+![Multi-hop query — clause conflict detection](results/Screenshot_2026-02-26_005413.png)
 
 ---
 
@@ -108,7 +108,7 @@ Graph RAG uses CONFLICTS_WITH edges to provide a detailed breakdown of specific 
 Query: "In the Software Services Agreement, what is the renewal term?"
 Both systems return the correct renewal term. Graph RAG retrieves it via clause-type graph traversal (5 graph-only chunks); baseline retrieves it via vector similarity, showing that for well-scoped clause queries both approaches converge.
 
-![Clause query — renewal term](results/Screenshot_2026-02-26_005636.png)
+![Clause query — renewal term](results/Screenshot_2026-02-26_004836.png)
 
 ---
 
