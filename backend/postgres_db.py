@@ -72,12 +72,22 @@ class PostgresDB:
                 id, question, graph_answer, baseline_answer,
                 extractive_answer, extractive_confidence,
                 graph_chunks, graph_only_chunks,
-                graph_latency, baseline_latency, created_at
+                graph_latency, baseline_latency,
+                graph_faithfulness, graph_relevancy,
+                graph_precision, graph_recall,
+                baseline_faithfulness, baseline_relevancy,
+                baseline_precision, baseline_recall,
+                created_at
             ) VALUES (
                 :id, :question, :graph_answer, :baseline_answer,
                 :extractive_answer, :extractive_confidence,
                 :graph_chunks, :graph_only_chunks,
-                :graph_latency, :baseline_latency, NOW()
+                :graph_latency, :baseline_latency,
+                :graph_faithfulness, :graph_relevancy,
+                :graph_precision, :graph_recall,
+                :baseline_faithfulness, :baseline_relevancy,
+                :baseline_precision, :baseline_recall,
+                NOW()
             )
         """, {"id": qid, **data})
         return qid
@@ -86,7 +96,12 @@ class PostgresDB:
         return self._exec("""
             SELECT id, question, graph_answer, baseline_answer,
                    extractive_answer, extractive_confidence,
-                   graph_latency, baseline_latency, created_at
+                   graph_latency, baseline_latency,
+                   graph_faithfulness, graph_relevancy,
+                   graph_precision, graph_recall,
+                   baseline_faithfulness, baseline_relevancy,
+                   baseline_precision, baseline_recall,
+                   created_at
             FROM query_history
             ORDER BY created_at DESC LIMIT :limit
         """, {"limit": limit})

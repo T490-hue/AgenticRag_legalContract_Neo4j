@@ -30,6 +30,14 @@ CREATE TABLE IF NOT EXISTS query_history (
     graph_only_chunks     INTEGER,
     graph_latency         FLOAT,
     baseline_latency      FLOAT,
+    graph_faithfulness    FLOAT DEFAULT 0,
+    graph_relevancy       FLOAT DEFAULT 0,
+    graph_precision       FLOAT DEFAULT 0,
+    graph_recall          FLOAT DEFAULT 0,
+    baseline_faithfulness FLOAT DEFAULT 0,
+    baseline_relevancy    FLOAT DEFAULT 0,
+    baseline_precision    FLOAT DEFAULT 0,
+    baseline_recall       FLOAT DEFAULT 0,
     created_at            TIMESTAMP DEFAULT NOW()
 );
 

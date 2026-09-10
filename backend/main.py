@@ -16,8 +16,9 @@ from embeddings import EmbeddingModel
 from ollama_utils import OllamaLLM
 from retrieval  import LegalRetriever
 from postgres_db import PostgresDB
-from baseline   import BaselineRAG
-from celery_app import process_contract_task
+from baseline    import BaselineRAG
+from celery_app  import process_contract_task
+from evaluation  import RAGEvaluator
 
 app = FastAPI(title="Legal Graph RAG API", version="1.0.0")
 app.add_middleware(
@@ -31,6 +32,7 @@ llm       = None
 retriever = None
 baseline  = None
 pg        = None
+evaluator = None
 
 UPLOAD_DIR = "/tmp/legal_rag_uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
@@ -38,7 +40,7 @@ os.makedirs(UPLOAD_DIR, exist_ok=True)
 
 @app.on_event("startup")
 async def startup():
-    global conn, embedder, llm, retriever, baseline, pg
+    global conn, embedder, llm, retriever, baseline, pg, evaluator
     print("Starting Legal Graph RAG...")
     pg        = PostgresDB()
     conn      = Neo4jConnection()
@@ -47,6 +49,7 @@ async def startup():
     llm       = OllamaLLM()
     retriever = LegalRetriever(conn, embedder)
     baseline  = BaselineRAG(embedder, llm)
+    evaluator = RAGEvaluator(llm)
 
     # Preload existing chunks into baseline memory store
     try:
@@ -73,8 +76,8 @@ class QueryResponse(BaseModel):
     graph_latency:      float
     baseline_latency:   float
     sources:            List[dict]
-    graph_chunk_texts:  List[str] = []   # for evaluation script
-    baseline_chunk_texts: List[str] = [] # for evaluation script
+    graph_chunk_texts:  List[str] = []
+    baseline_chunk_texts: List[str] = []
 
 
 @app.post("/contracts/upload")
@@ -191,6 +194,30 @@ def query(req: QueryRequest):
         for c in graph_chunks[:6]
     ]
 
+    # ── RAGAS Evaluation ──────────────────────────────────────
+    baseline_texts = base_resp.retrieved_texts if hasattr(base_resp, "retrieved_texts") else []
+
+    graph_eval    = evaluator.evaluate(req.question, graph_answer, graph_texts)
+    baseline_eval = evaluator.evaluate(req.question, base_resp.answer, baseline_texts)
+
+    print("\n" + "="*70)
+    print(f"  RAGAS EVALUATION — \"{req.question[:60]}\"")
+    print("="*70)
+    print(f"  {'Metric':<22} {'Graph RAG':>10} {'Baseline':>10}  {'Winner':>10}")
+    print(f"  {'-'*22} {'-'*10} {'-'*10}  {'-'*10}")
+    for name, g, b in [
+        ("Faithfulness",      graph_eval.faithfulness,      baseline_eval.faithfulness),
+        ("Answer Relevancy",  graph_eval.answer_relevancy,  baseline_eval.answer_relevancy),
+        ("Context Precision", graph_eval.context_precision,  baseline_eval.context_precision),
+        ("Context Recall",    graph_eval.context_recall,     baseline_eval.context_recall),
+    ]:
+        winner = "Graph" if g > b else "Baseline" if b > g else "Tie"
+        print(f"  {name:<22} {g:>10.3f} {b:>10.3f}  {winner:>10}")
+    print(f"  {'-'*22} {'-'*10} {'-'*10}  {'-'*10}")
+    print(f"  {'OVERALL':<22} {graph_eval.overall():>10.3f} {baseline_eval.overall():>10.3f}  "
+          f"{'Graph' if graph_eval.overall() > baseline_eval.overall() else 'Baseline' if baseline_eval.overall() > graph_eval.overall() else 'Tie':>10}")
+    print("="*70 + "\n")
+
     pg.save_query({
         "question":              req.question,
         "graph_answer":          graph_answer,
@@ -201,10 +228,15 @@ def query(req: QueryRequest):
         "graph_only_chunks":     graph_only,
         "graph_latency":         graph_time,
         "baseline_latency":      baseline_time,
+        "graph_faithfulness":    graph_eval.faithfulness,
+        "graph_relevancy":       graph_eval.answer_relevancy,
+        "graph_precision":       graph_eval.context_precision,
+        "graph_recall":          graph_eval.context_recall,
+        "baseline_faithfulness": baseline_eval.faithfulness,
+        "baseline_relevancy":    baseline_eval.answer_relevancy,
+        "baseline_precision":    baseline_eval.context_precision,
+        "baseline_recall":       baseline_eval.context_recall,
     })
-
-    baseline_texts = [c.text for c in getattr(base_resp, "chunks", [])] \
-                     if hasattr(base_resp, "chunks") else []
 
     return QueryResponse(
         question=req.question,
@@ -268,6 +300,22 @@ def graph_stats():
             "risks":     len(pg.get_risk_flags()),
         },
         "baseline_chunks": baseline.store.size() if baseline else 0,
+    }
+
+
+class EvalRequest(BaseModel):
+    question: str
+    answer:   str
+    contexts: List[str]
+
+
+@app.post("/evaluate")
+def evaluate_endpoint(req: EvalRequest):
+    """Standalone evaluation — score any question/answer/context triple."""
+    metrics = evaluator.evaluate(req.question, req.answer, req.contexts)
+    return {
+        **metrics.to_dict(),
+        "overall": metrics.overall(),
     }
 
 
