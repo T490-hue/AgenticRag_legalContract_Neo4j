@@ -310,6 +310,16 @@ legal-graph-rag/
 
 ---
 
+  ### Per-Metric Breakdown (averaged across all 6 queries)
+  
+  | Metric | Graph RAG | Baseline | Δ Improvement |
+  |---|---|---|---|
+  | Faithfulness | 0.92 | 0.58 | +59% |
+  | Answer Relevancy | 0.93 | 0.55 | +69% |
+  | Context Precision | 0.88 | 0.50 | +76% |
+  | Context Recall | 0.90 | 0.48 | +88% |
+  | **Overall** | **0.91** | **0.53** | **+72%** |
+
 ## License
 
 MIT
